@@ -1,0 +1,28 @@
+{
+  "name": "web3-react-demo-v8",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ethersproject/providers": "^5.6.0",
+    "@web3-react/core": "^8.0.19-beta.0",
+    "@web3-react/metamask": "^8.0.15-beta.0",
+    "@web3-react/network": "^8.0.0-beta.0",
+    "@web3-react/types": "^8.0.10-beta.0",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.21",
+    "@types/react": "17.0.40",
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0",
+    "typescript": "4.6.2"
+  }
+}
