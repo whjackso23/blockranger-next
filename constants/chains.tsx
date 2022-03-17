@@ -1,11 +1,11 @@
+// @ts-check
 import type { AddEthereumChainParameter } from "@web3-react/types";
 
-// from chains.ts
-const ETH: AddEthereumChainParameter["nativeCurrency"] = {
-  name: "Ether",
-  symbol: "ETH",
-  decimals: 18,
-};
+// const ETH: AddEthereumChainParameter["nativeCurrency"] = {
+//   name: "Ether",
+//   symbol: "ETH",
+//   decimals: 18,
+// };
 
 interface BasicChainInformation {
   urls: string[];

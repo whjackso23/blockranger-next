@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect } from "react";
 import { hooks, metaMask } from "../connectors/metaMask";
 import { Accounts } from "./Accounts";

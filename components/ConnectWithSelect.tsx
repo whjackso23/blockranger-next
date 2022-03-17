@@ -1,11 +1,14 @@
+import React from "react";
 import type { Web3ReactHooks } from "@web3-react/core";
 import type { MetaMask } from "@web3-react/metamask";
 import { Network } from "@web3-react/network";
 import { useCallback, useState } from "react";
-import { isFunction } from "util";
 import { CHAINS, getAddChainParameters, URLS } from "../constants/chains";
 
-// from ConnectWithSelect.tsx
+/**
+ * Select a chain
+ * @return {object} A JSX component  select
+ */
 function Select({
   chainId,
   switchChain,
@@ -35,6 +38,10 @@ function Select({
   );
 }
 
+/**
+ * Wrapper function allowing a connection to be made to Web3 with Metamaxk
+ * @return {object} JSX of full app
+ */
 export function ConnectWithSelect({
   connector,
   chainId,
