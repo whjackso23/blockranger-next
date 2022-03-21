@@ -14,7 +14,7 @@ function MainNavigation() {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>React Listings</div>
+      <div className={classes.logo}>Pipeline</div>
       <nav>
         <ul>
           <li>

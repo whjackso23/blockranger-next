@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Card({ children }: { children: JSX.Element | JSX.Element[] }) {
+function Card({ children }: { children: JSX.Element | JSX.Element[] }) {
   return (
     <div
       style={{
@@ -19,3 +19,5 @@ export function Card({ children }: { children: JSX.Element | JSX.Element[] }) {
     </div>
   );
 }
+
+export default Card;

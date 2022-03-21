@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { hooks, metaMask } from "../connectors/metaMask";
 import { Accounts } from "./Accounts";
-import { Card } from "./Card";
+import Card from "./Card";
 import { Chain } from "./Chain";
 import { ConnectWithSelect } from "./ConnectWithSelect";
 import { Status } from "./Status";

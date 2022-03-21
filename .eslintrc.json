@@ -18,6 +18,7 @@
     "quotes": "off",
     "indent": 0,
     "max-len": 0,
-    "require-jsdoc": 0
+    "require-jsdoc": 0,
+    "spaced-comment": 0
   }
 }

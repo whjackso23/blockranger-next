@@ -1,0 +1,65 @@
+rules_version = '2';
+//---PIPELINE RULES----//
+//General Motives: All writing is handled from cloud functions, so all create and update 
+//based rules are enforced in the validation libraries there. Direct client connections 
+//the firestore database, listeners, are currently only used for reads, so only reading rules are seen here,
+//if reading rules are not visible 
+
+//get list create delete update
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    match /users/{user} {
+    	//Only allow users to read their own user document. Practically this is only at 
+    	//listener level, documents are read frequently read from functions api
+      allow read: if resource.data.userID == request.auth.uid;
+    }   
+    
+    match /global/{versionInfo} {
+    	//no writes allowed, admin only
+      allow read;
+    }
+    
+    match /notifications/{notification} {
+    	//only allow reading your own notifications
+    	allow read: if resource.data.userID == request.auth.uid;
+    }
+    
+    match /activity/{activity} {
+    	//only allow reading your own activity
+    	allow read: if resource.data.userID == request.auth.uid;
+    }
+    
+    match /chats/{chat}/messages/{message} {
+      //only allow read of users in the chat
+    	allow read: if get(/databases/$(database)/documents/chats/$(chat)).data.userID_1 == request.auth.uid
+      						|| get(/databases/$(database)/documents/chats/$(chat)).data.userID_2 == request.auth.uid;
+    }
+    
+    match /chats/{chat} {
+    	//everyone can see chat objects not great but ok for now
+    	allow read;
+    }
+    
+    match /listings/{listing} {
+    	//only allow bid reading on public auctions, check for invite 
+    	allow read;
+    }
+    
+    match /listings/{listing}/bids/{bid} {
+    	//only allow bid reading on public auctions, check for invite 
+    	allow read;
+    }
+    
+    match /listing_processing/{listing} {
+    	//process listings are fully public
+    	allow read;
+    }
+    
+    match /giveaways/{giveaway} {
+    	//only allow bid reading on public giveaways, check for invite 
+    	allow read;
+    }
+    
+  }
+}
